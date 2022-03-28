@@ -8,9 +8,9 @@ class testComponent extends CBitrixComponent
         CModule::IncludeModule("iblock");
         $res = array();
         if(empty($arParams['IBLOCK_ID']))
-            $ib = CIBlockElement::GetList(array("iblock_id" => "asc"), array("IBLOCK_TYPE" => $this->arParams['IBLOCK_TYPE']));
+            $ib = CIBlockElement::GetList(array("iblock_id" => "asc"), array("IBLOCK_TYPE" => $this->arParams['IBLOCK_TYPE']), $this->arParams['FIELD_CODE']);
         else
-            $ib = CIBlockElement::GetList(array("iblock_id" => "asc"), array("IBLOCK_ID"=>$arParams["IBLOCK_ID"], "IBLOCK_TYPE" => $this->arParams['IBLOCK_TYPE']));
+            $ib = CIBlockElement::GetList(array("iblock_id" => "asc"), array("IBLOCK_ID"=>$arParams["IBLOCK_ID"], "IBLOCK_TYPE" => $this->arParams['IBLOCK_TYPE']), $this->arParams['FIELD_CODE']);
         while($el = $ib->GetNext())
         {
             if(empty($res[$el['IBLOCK_ID']]))
